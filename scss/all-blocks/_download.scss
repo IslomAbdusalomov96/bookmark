@@ -1,0 +1,182 @@
+@mixin downStyle ($down-color, $down-font-size, $down-weight, $down-line-height) {
+    color: $down-color;
+    font-size: $down-font-size;
+    font-weight: $down-weight;
+    line-height: $down-line-height;
+}
+.download {
+    padding-bottom: 149px;
+    &__container {
+        max-width: 951px;
+    }
+    &__top {
+        margin: 0 auto;
+        margin-bottom: 48px;
+        text-align: center;
+        width: 100%;
+        max-width: 541px;
+    }
+    &__title {
+        margin-bottom: 16px;
+        letter-spacing: -0.1px;
+        @include downStyle(#242A45, 32px, 500, 52px)
+    }
+    &__desc {
+        opacity: 0.5;
+        @include downStyle(#242A45, 18px, 400, 28px)
+    }
+    &__list {
+        display: flex;
+    }
+    &__item {
+        margin-bottom: 80px;
+        padding: 181px 24px 24px;
+        position: relative;
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
+        border-radius: 15px; 
+        box-shadow: 0px 10px 20px -5px rgba(73, 93, 207, 0.20);
+    }
+    &__item:nth-child(2) {
+        margin: 40px 37px 40px 34px;
+    }
+    &__item:nth-child(3) {
+        margin-top: 80px;
+        margin-bottom: 0;
+    }
+    &__item::before {
+        display: block;
+        content: "";
+        position: absolute;
+        top: 49px;
+        left: 50%;
+        transform: translate(-50%);
+        width: 102px;
+        height: 100px;
+        background-image: url("../images/bookmark-chrome.png");
+        background-size: contain;
+    }
+    &__item:nth-child(2)::before {
+        width: 105px;
+        background-image: url("../images/bookmark-firefox.png");
+    }
+    &__item:nth-child(3)::before {
+        width: 96px;
+        background-image: url("../images/bookmark-opera-mini.png");
+    }
+    &__link {
+        margin-bottom: 6px;
+        letter-spacing: 0.25px;
+        @include downStyle(#242A45, 20px, 500, normal)
+    }
+    &__text {
+        margin-bottom: 60px;
+        opacity: 0.5;
+        @include downStyle(#242A45, 15px, 400, 28px)
+    }
+    &__btn {
+        padding: 8px 33px;
+        border: 2px solid transparent;
+        border-radius: 5px;
+        background-color: #5267DF;
+        box-shadow: 0px 8px 8px -4px rgba(73, 93, 207, 0.20);
+        letter-spacing: 0.25px;
+        transition: 0.3s;
+        @include downStyle(#FFF, 14px, 500, 28px)
+    }
+    &__btn:hover {
+        border-color: #5267DF;
+        color: #5267DF;
+        background-color: #FFF;
+        cursor: pointer;
+    }
+}
+
+@media only screen and (max-width: 950px) {
+    .download {
+        &__list {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        &__item {
+            margin: 0;
+        }
+        &__item:first-child {
+            margin-right: 35px;
+        }
+        &__item:nth-child(2) {
+            margin: 0;
+            margin-right: 35px;
+        }
+        &__item:nth-child(3) {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+    }
+}
+
+@media only screen and (max-width: 914px) {
+    .download__item:nth-child(2) {
+        margin-right: 0;
+    }
+}
+
+@media only screen and (max-width: 670px) {
+    .download {
+        padding-bottom: 140px;
+        &__top {
+            margin-bottom: 40px;
+        }
+        &__list {
+            justify-content: center;
+        }
+        &__item {
+            margin: 0 auto;
+        }
+        &__item:not(:last-child) {
+            margin: 0 auto;
+            margin-bottom: 40px;
+        }
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .download {
+        &__container {
+            padding: 0 32px;
+        }
+        &__title {
+            margin-bottom: 0;
+            font-size: 24px;
+            letter-spacing: -0.075px;
+        }
+        &__desc {
+            font-size: 15px;
+            line-height: 25px;
+        }
+        &__item:first-child {
+            margin: 0 auto;
+            margin-bottom: 40px;
+        }
+    }
+}
+
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (min--moz-device-pixel-ratio: 2),
+only screen and (-o-min-device-pixel-ratio: 2/1),
+only screen and (min-device-pixel-ratio: 2),
+only screen and (min-resolution: 192dpi),
+only screen and (min-resolution: 2dppx) {
+    /* Load high-resolution image */
+    .download__item::before {
+        background-image: url("../images/bookmark-chrome@2x.png");
+    }
+    .download__item:nth-child(2)::before {
+        background-image: url("../images/bookmark-firefox@2x.png");
+    }
+    .download__item:nth-child(3)::before {
+        background-image: url("../images/bookmark-opera-mini@2x.png");
+    }
+}

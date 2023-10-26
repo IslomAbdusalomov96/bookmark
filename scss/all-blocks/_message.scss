@@ -1,0 +1,94 @@
+@mixin messageStyle ($message-color, $message-font-size, $message-weight, $message-line-height, $message-letter-spacing) {
+    color: $message-color;
+    font-size: $message-font-size;
+    font-weight: $message-weight;
+    line-height: $message-line-height;
+    letter-spacing: $message-letter-spacing;
+}
+.message {
+    padding: 58px 0 74px;
+    background-color: #5267DF;
+    &__container {
+        text-align: center;
+    }
+    &__top {
+        margin-bottom: 36px;
+    }
+    &__subtitle {
+        display: inline-block;
+        margin-bottom: 24px;
+        text-transform: uppercase;
+        @include messageStyle(#FFF, 13px, 500, 40px, 5px)
+    }
+    &__title {
+        margin: 0 auto;
+        width: 100%;
+        max-width: 408px;
+        @include messageStyle(#FFF, 32px, 500, 40px, -0.1px)
+    }
+    &__form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    &__input {
+        padding: 10px 20px;
+        width: 100%;
+        max-width: 300px;
+        border: 2px solid transparent;
+        border-radius: 5px;
+        background-color: #FFF;
+        outline: none;
+        @include messageStyle(rgba(36, 42, 69, 0.25), 14px, 400, 28px, 0.25px)
+    }
+    &__input:focus {
+        border-color: #FA5959;
+        color: #242A45;
+    }
+    &__btn {
+        margin-left: 16px;
+        padding: 10px 24px;
+        border-radius: 5px;
+        border: 2px solid transparent;
+        background-color: #FA5959;        
+        box-shadow: 0px 8px 8px -4px rgba(73, 93, 207, 0.20);
+        transition: 0.3s;
+        @include messageStyle(#FFF, 14px, 500, 28px, 0.25px)
+    }
+    &__btn:hover {
+        border-color: #FA5959;
+        color: #FA5959;
+        background-color: #FFF;
+        cursor: pointer;
+    }
+}
+
+@media only screen and (max-width: 506px) {
+    .message {
+        padding: 60px 0;
+        &__container {
+            padding: 0 32px;
+        }
+        &__top {
+            margin-bottom: 32px;
+        }
+        &__subtitle {
+            margin-bottom: 0;
+            font-size: 12px;
+        }
+        &__title {
+            @include messageStyle(#FFF, 24px, 500, 28px, -0.075px)
+        }
+        &__form {
+            flex-direction: column;
+        }
+        &__input {
+            margin-bottom: 16px;
+            max-width: 100%;
+        }
+        &__btn {
+            width: 100%;
+            margin-left: 0;
+        }
+    }
+}

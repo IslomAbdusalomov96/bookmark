@@ -1,0 +1,178 @@
+@mixin headerStyle ($header-color, $header-font-size, $header-weight, $header-line-height, $header-letter-spacing) {
+    color: $header-color;
+    font-size: $header-font-size;
+    font-weight: $header-weight;
+    line-height: $header-line-height;
+    letter-spacing: $header-letter-spacing;
+}
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 48px 0;
+    background-color: #FFF;
+    z-index: 10;
+    &__container {
+        padding: 0 20px 6px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    &__logo {
+        flex-shrink: 0;
+    }
+    &__logo-img {
+        width: 149px;
+        height: 25px;
+    }
+    &__logo-img-mobile {
+        display: none;
+        width: 148px;
+        height: 25px;
+    }
+    &__list {
+        display: flex;
+        align-items: center;
+    }
+    &__item:not(:last-child) {
+        margin-right: 48px;
+    }
+    &__item:first-child {
+        margin-right: 44px;
+    }
+    &__link {
+        text-transform: uppercase;
+        transition: 0.3s;
+        @include headerStyle(#242A45, 13px, 400, 17px, 1.5px)
+    }
+    &__link:hover {
+        color: #FA5959;
+    }
+    &__btn {
+        padding: 10px 30px 9px 32px;
+        text-transform: uppercase;
+        transition: 0.3s;
+        border: 2px solid transparent;
+        border-radius: 5px;
+        background-color: #FA5959;
+        box-shadow: 0px 8px 8px -4px rgba(73, 93, 207, 0.20);
+        @include headerStyle(#FFF, 13px, 500, 17px, 1.5)
+    }
+    &__btn:hover {
+        border: 2px solid #FA5959;
+        color: #FA5959;
+        background-color: #FFF;
+        cursor: pointer;
+    }
+    &__social {
+        display: none;
+        margin: 0 auto;
+        text-align: center;
+        max-width: 100%;
+    }
+    &__social-icon {
+        color: #FFF;
+        font-size: 24px;
+        transition: 0.3s;
+    }
+    &__social-icon:first-child {
+        margin-right: 40px;
+    }
+    &__social-icon:hover {
+        color: #FA5959;
+    }
+    &__hamburger {
+        display: none;
+        border: none;
+        background: transparent;
+        font-size: 18px;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .header {
+        padding: 40px 0;
+        &__container {
+            position: relative;
+            padding: 0 32px;
+        }
+        &__logo-img {
+            width: 148px;
+        }
+        &__nav {
+            display: none;
+        }
+        &__hamburger {
+            display: block;
+            .fa-xmark {
+                display: none;
+            }
+        }
+    }
+    .header--open {
+        background-color: rgba(36, 42, 69, 0.80);
+        z-index: 2;
+    }
+    .header--open .header__logo-img-mobile {
+        display: block;
+    }
+    .header--open .header__logo-img {
+        display: none;
+    }
+    .header--open .header__nav {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0 32px 48px;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        text-align: center;
+        background-color: rgba(36, 42, 69, 0.80);
+    }
+    .header--open .header__list {
+        justify-content: center;
+        flex-direction: column;
+    }
+    .header--open .fa-bars {
+        display: none;
+    }
+    .header--open .fa-xmark {
+        display: block;
+        color: #FFF;
+    }
+    .header--open .header__item {
+        padding: 24px 0;
+        width: 100%;
+        text-align: center;
+        border-top: 1px solid #ffffff62;
+    }
+    .header--open .header__item:not(:last-child) {
+        margin-right: 0;
+    }
+    .header--open .header__item:first-child {
+        margin-right: 0;
+        padding: 25px 0 24px;
+    }
+    .header--open .header__item:nth-child(3) {
+        padding: 24px 0 25px;
+    }
+    .header--open .header__item:last-child {
+        padding: 24px 0 219px;
+    }
+    .header--open .header__link {
+        @include headerStyle(#FFF, 20px, 400, 17px, 2px)
+    }
+    .header--open .header__btn {
+        padding: 16px 0 15px;
+        width: 100%;
+        background-color: transparent;
+        border: 2px solid #FFF;
+        @include headerStyle(#FFF, 20px, 500, 17px, 2px)
+    }
+    .header--open .header__social {
+        display: block;
+    }
+}

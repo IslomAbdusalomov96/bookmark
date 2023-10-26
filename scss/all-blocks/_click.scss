@@ -1,0 +1,101 @@
+@mixin clickStyle ($click-color, $click-font-size, $click-weight, $click-line-height) {
+    color: $click-color;
+    font-size: $click-font-size;
+    font-weight: $click-weight;
+    line-height: $click-line-height;
+}
+.click {
+    padding-bottom: 149px;
+    &__container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding-bottom: 89px;
+        max-width: 1146px;
+    }
+    &__img {
+        margin-right: 125px;
+        width: 536px;
+        height: 346px;
+    }
+    &__shadow {
+        position: absolute;
+        left: -169px;
+        bottom: 0;
+        z-index: -1;
+    }
+    &__right {
+        width: 100%;
+        max-width: 445px;
+    }
+    &__title {
+        margin-bottom: 16px;
+        letter-spacing: -0.1px;
+        @include clickStyle(#242A45, 32px, 500, 52px)
+    }
+    &__desc {
+        margin-bottom: 32px;
+        opacity: 0.5;
+        @include clickStyle(#242A45, 18px, 400, 28px)
+    }
+    &__btn {
+        padding: 10px 24px;
+        border: none;
+        border-radius: 5px;
+        background-color: #5267DF;     
+        box-shadow: 0px 8px 8px -4px rgba(73, 93, 207, 0.20);
+        letter-spacing: 0.25px;
+        cursor: pointer;
+        @include clickStyle(#FFF, 14px, 500, 28px)
+    }
+}
+
+@media only screen and (max-width: 1034px) {
+    .click {
+        &__container {
+            flex-direction: column;
+        }
+        &__img {
+            margin-right: 0;
+            margin-bottom: 69px;
+        }
+        &__shadow {
+            top: 59px;
+        }
+        &__right {
+            text-align: center;
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .click {
+        padding-bottom: 140px;
+        &__container {
+            padding: 0 32px;
+        }
+        &__img {
+            width: 311px;
+            height: 201px;
+        }
+        &__shadow {
+            width: 308px;
+            height: 203px;
+            top: 34px;
+            left: 0;
+        }
+        &__title {
+            margin-bottom: 0;
+            font-size: 24px;
+            letter-spacing: -0.075px;
+        }
+        &__desc {
+            margin-bottom: 0;
+            font-size: 15px;
+            line-height: 25px;
+        }
+        &__btn {
+            display: none;
+        }
+    }
+}

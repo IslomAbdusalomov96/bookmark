@@ -1,0 +1,100 @@
+@mixin featuresStyle ($feat-color, $feat-font-size, $feat-weight, $feat-line-height) {
+    color: $feat-color;
+    font-size: $feat-font-size;
+    font-weight: $feat-weight;
+    line-height: $feat-line-height;
+}
+.features {
+    padding-bottom: 72px;
+    &__container {
+        max-width: 730px;
+    }
+    &__title {
+        margin-bottom: 16px;
+        text-align: center;
+        letter-spacing: -0.1px;
+        @include featuresStyle(#242A45, 32px, 500, 52px)
+    }
+    &__desc {
+        margin: 0 auto;
+        margin-bottom: 72px;
+        width: 100%;
+        max-width: 540px;
+        text-align: center;
+        opacity: 0.5;
+        @include featuresStyle(#242A45, 18px, 400, 28px)
+    }
+    &__list {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-right: 71px;
+        width: 100%;
+        border-bottom: 1px solid rgba(73, 93, 207, 0.20);
+    }
+    &__item {
+        padding-bottom: 32px;
+    }
+    &__item:first-child {
+        padding: 0 40px 27px 41px;
+        border-bottom: 4px solid #FA5959;
+    }
+    &__link {
+        opacity: 0.75;
+        letter-spacing: 0.533px;
+        transition: 0.3s;
+        @include featuresStyle(#242A45, 16px, 400, 17px)
+    }
+    &__item:first-child &__link {
+        opacity: 1;
+    }
+    &__link:hover {
+        color: #FA5959;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .features {
+        &__container {
+            padding: 0 32px;
+        }
+        &__title {
+            margin-bottom: 0;
+            font-size: 24px;
+            letter-spacing: -0.075px;
+        }
+        &__desc {
+            margin-bottom: 40px;
+            font-size: 15px;
+            line-height: 25px;
+        }
+        &__list {
+            flex-direction: column;
+            padding: 0;
+            border: none;
+        }
+        &__item {
+            padding: 0;
+            width: 100%;
+            text-align: center;
+        }
+        &__item:first-child {
+            padding: 20px 0;
+            border: none;
+            border-top: 1px solid rgba(73, 93, 207, 0.20);
+        }
+        &__item:nth-child(2) {
+            padding: 21px 0 20px;
+            border-top: 1px solid rgba(73, 93, 207, 0.20);
+            border-bottom: 1px solid rgba(73, 93, 207, 0.20);
+        }
+        &__item:last-child {
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(73, 93, 207, 0.20);
+        }
+        &__item:first-child &__link {
+            padding-bottom: 20px;
+            border-bottom: 4px solid #FA5959;
+        }
+    }
+}
